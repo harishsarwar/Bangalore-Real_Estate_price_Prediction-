@@ -1,0 +1,45 @@
+<html>
+<body>
+    <h1>Home Price Estimator</h1>
+    <form action="/predictdata" method="post">
+        <label for="area">Area (Square Feet):</label><br>
+        <input type="number" id="area" name="area" placeholder="Enter area in sqft" required><br><br>
+
+        <label>BHK:</label><br>
+        <input type="radio" id="bhk1" name="bhk" value="1" required>
+        <label for="bhk1">1</label>
+        <input type="radio" id="bhk2" name="bhk" value="2">
+        <label for="bhk2">2</label>
+        <input type="radio" id="bhk3" name="bhk" value="3">
+        <label for="bhk3">3</label>
+        <input type="radio" id="bhk4" name="bhk" value="4">
+        <label for="bhk4">4</label>
+        <input type="radio" id="bhk5" name="bhk" value="5">
+        <label for="bhk5">5</label><br><br>
+
+        <label>Bath:</label><br>
+        <input type="radio" id="bath1" name="bath" value="1" required>
+        <label for="bath1">1</label>
+        <input type="radio" id="bath2" name="bath" value="2">
+        <label for="bath2">2</label>
+        <input type="radio" id="bath3" name="bath" value="3">
+        <label for="bath3">3</label>
+        <input type="radio" id="bath4" name="bath" value="4">
+        <label for="bath4">4</label>
+        <input type="radio" id="bath5" name="bath" value="5">
+        <label for="bath5">5</label><br><br>
+
+        <label for="location">Location:</label><br>
+        <select id="location" name="location" required>
+            <option value="" selected disabled>Select a location</option>
+            {% for loc in locations %}
+                <option value="{{ loc }}">{{ loc }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Estimate Price">
+    </form>
+
+    <h2>Estimated Price in lakhs : {{ result }}</h2>
+</body>
+</html>
